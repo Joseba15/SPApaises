@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.boton{
+    margin-top: 20px;
+}
+.col-3{
+    float: left;
+}
+
+.col{
+    float: left;
+    margin-left: 65px;
+}
+.small-flag {
+    width: 50px;
+}
+
+.mr-1 {
+    margin-right: 5px;
+}
