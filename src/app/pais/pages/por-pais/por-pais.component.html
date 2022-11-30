@@ -1,9 +1,15 @@
 <h1>Por País</h1>
 <hr>
-<input type="text" size="30">
+<form (ngSubmit)="search()" [(ngModel)]="query" >
+    <input type="text"  id="search">
+</form>
 <br>
 <br>
-<table class="table table-hover">
+<div class="alert alert-danger"  *ngIf="error">
+    No se encontro nada con el termino {{TextError}}
+</div>
+
+<table class="table table-hover" *ngIf="countries.length>0">
     <thead>
         <tr>
             <th> # </th>
@@ -14,13 +20,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr > <!-- Esto es lo que tenemos que repetir por cada país que encuentre -->
-            <td>  </td> <!-- Aquí obtendremos el número de resultado -->
+        <tr *ngFor="let country of countries; let i = index" > <!-- Esto es lo que tenemos que repetir por cada país que encuentre -->
+            <td>{{i+1}} </td> <!-- Aquí obtendremos el número de resultado -->
             <td>
-                <img class="small-flag" [src]="" > <!-- Aquí obtendremos la url de la bandera --> 
+                <img class="small-flag" [src]="country.flags.png" > <!-- Aquí obtendremos la url de la bandera --> 
             </td>
-            <td> </td> <!-- La capital, el nombre del país y la población lo obtendremos de la api -->
-            <td> </td>
+            <td>{{country.capital}}, {{country.name.common}} </td> <!-- La capital, el nombre del país y la población lo obtendremos de la api -->
+            <td>{{country.population}}</td>
             <td>
                 <a >Ver...</a> <!-- Esto lo dejamos así de momento -->
             </td>
