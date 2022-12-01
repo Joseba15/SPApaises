@@ -11,6 +11,7 @@ export class PorPaisComponent implements OnInit {
   countries:Country[]=[];
   textError:string='';
   error:boolean=false;
+  
   constructor(private countryService: PaisService) { }
 
   ngOnInit(): void {
